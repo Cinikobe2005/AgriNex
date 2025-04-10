@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "./NavBar";
+import NavBar from "../layout/NavBar";
 import HeroSection from "./HeroSection";
-import Footer from "./Footer";
-import LoginPage from "./LoginPage";
-import SignUp from "./SignUp";
+import Footer from "../layout/Footer";
+import LoginPage from "../pages/auth/LoginPage";
+import SignUp from "../pages/auth/SignUp";
 
 const Layout = () => {
   return (
