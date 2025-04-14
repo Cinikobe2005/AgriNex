@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import AgriNex from "../../assets/AgriNex.png"
 
 const SignUp = () => {
   return (
-    <div>SignUp</div>
-  )
-}
+    <div className="flex items-center">
+      <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
 
-export default SignUp
+      </form>
+    </div>
+  );
+};
+
+export default SignUp;

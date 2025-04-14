@@ -1,10 +1,11 @@
 import React from "react";
-import Layout from "../components/Layout";
+import AgriNex from "../assets/AgriNex.png";
+
 
 const HomePage = () => {
   return (
     <div>
-      <Layout />
+     HomePage
     </div>
   );
 };
