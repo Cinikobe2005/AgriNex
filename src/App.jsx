@@ -8,6 +8,13 @@ function App() {
     <>
       <HomePage />
       <SignUp />
+      {/* <Login />
+      <About />
+      <Contact />
+      <HeroSection />
+      <Footer />
+      <Navbar />
+      <Services /> */}
     </>
   );
 }
