@@ -7,7 +7,6 @@ const SignUp = () => {
   return (
     <div className="flex items-center">
       <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
-
       </form>
     </div>
   );
