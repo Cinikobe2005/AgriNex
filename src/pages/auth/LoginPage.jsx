@@ -3,7 +3,7 @@ import FcGoogle from "../../assets/googleIcon.svg";
 import EyeIcon from "../../assets/eyesOpen.svg";
 import EyeOffIcon from "../../assets/eyeClose.svg";
 import logo from "../../assets/AgriNex.png";
-import newSideImg from "../../assets/aiSideImg.svg";
+import newSideImg from "../../assets/aiSideImg.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema, SignInSchema } from "../../utils/FormValidator";
@@ -28,7 +28,7 @@ const LoginPage = () => {
     setIsLoading(true); // Set loading state to true
     try {
       const response = await axios.post(
-        "http://localhost:4090/api/signin",
+        "https://agrinex-backend.onrender.com/api/signin",
         {
           email: data.email,
           password: data.password,
@@ -65,30 +65,32 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-6xl w-full mx-auto lg:flex flex-col md:flex-row items-center md:space-x-20 px-4 ">
-        <div className="w-full lg:w-1/2 flex flex-col  ">
-          <div className="flex flex-col items-start lg:text-center mb-8">
-            <img src={logo} alt="AgriNex" className="mb-4" />
+    <div className="flex w-full">
+      <div className="w-full lg:w-1/2 flex items-center justify-center">
+        <div className="max-w-md w-full">
+          <div className="flex flex-col items-start mb-8">
+            <img src={logo} alt="AgriNex" className="pb-13" />
+          </div>
+          <div>
             <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
             <p className="text-gray-600 mb-6">Sign In To Your Account</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              {...register("email")}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
-            />
-            <p className="p-0 m-0 text-danger">{errors.email?.message}</p>
+            <div>
+              <input
+                type="email"
+                placeholder="Email"
+                {...register("email")}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <p className="p-0 m-0 text-danger">{errors.email?.message}</p>
+            </div>
 
             <div className="relative">
               <input
                 type={showPwd ? "text" : "password"}
                 placeholder="Password"
-                required
                 {...register("password")}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
               />
@@ -105,7 +107,7 @@ const LoginPage = () => {
               </button>
               <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
             </div>
-            <div className="flex  justify-end ">
+            <div className="flex justify-end">
               <Link>
                 <p>Forgot Password?</p>
               </Link>
@@ -122,7 +124,7 @@ const LoginPage = () => {
 
           <div className="flex items-center my-4">
             <div className="flex-grow h-px bg-gray-300"></div>
-            <span className="mx-2 text-gray-500 uppercase text-xs ">or</span>
+            <span className="mx-2 text-gray-500 uppercase text-xs">or</span>
             <div className="flex-grow h-px bg-gray-300"></div>
           </div>
 
@@ -132,16 +134,19 @@ const LoginPage = () => {
           </button>
 
           <p className="mt-6 text-center text-gray-700">
-            Don’t have an account ?{" "}
+            Don’t have an account?{" "}
             <Link to="/auth/signup" className="text-green-600 hover:underline">
               Sign Up
             </Link>
           </p>
         </div>
-
-        <div className="hidden lg:block w-full md:w-1/2">
-          <img src={newSideImg} alt="New Side Image" className="w-full my-5" />
-        </div>
+      </div>
+      <div className="hidden lg:block w-1/2 h-full">
+        <img
+          src={newSideImg}
+          alt="New Side Image"
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );
