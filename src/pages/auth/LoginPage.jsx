@@ -69,7 +69,9 @@ const LoginPage = () => {
       <div className="w-full lg:w-1/2 flex items-center justify-center">
         <div className="max-w-md w-full">
           <div className="flex flex-col items-start mb-8">
-            <img src={logo} alt="AgriNex" className="pb-13" />
+            <Link to="/">
+              <img src={logo} alt="AgriNex" className="mb-4" />
+            </Link>
           </div>
           <div>
             <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
