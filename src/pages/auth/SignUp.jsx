@@ -3,7 +3,7 @@ import FcGoogle from "../../assets/googleIcon.svg";
 import EyeIcon from "../../assets/eyesOpen.svg";
 import EyeOffIcon from "../../assets/eyeClose.svg";
 import logo from "../../assets/AgriNex.png";
-import newSideImg from "../../assets/aiSideImg.svg";
+import newSideImg from "../../assets/aiSideImg.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SignInSchema } from "../../utils/FormValidator";
@@ -29,7 +29,7 @@ const SignUp = () => {
     setIsLoading(true); // Set loading state to true
     try {
       const response = await axios.post(
-        "http://localhost:4090/api/signup",
+        "https://agrinex-backend.onrender.com/api/signup",
         {
           email: data.email,
           username: data.username,
@@ -72,9 +72,7 @@ const SignUp = () => {
       <div className="max-w-6xl w-full mx-auto lg:flex flex-col md:flex-row items-center md:space-x-20 px-4 ">
         <div className="w-full lg:w-1/2 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
-            <Link to="/">
-              <img src={logo} alt="AgriNex" className="mb-4" />
-            </Link>
+            <img src={logo} alt="AgriNex" className="mb-4" />
             <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
             <p className="text-gray-600 mb-6">
               Lets get you started on a journey with us today
@@ -172,10 +170,13 @@ const SignUp = () => {
             </Link>
           </p>
         </div>
+      </div>
 
-        <div className="hidden lg:block w-full md:w-1/2">
-          <img src={newSideImg} alt="New Side Image" className="w-full my-5" />
-        </div>
+      <div className="hidden lg:block">
+        <img
+          src={newSideImg}
+          alt="New Side Image"
+        />
       </div>
     </div>
   );
