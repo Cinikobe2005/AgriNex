@@ -68,10 +68,113 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center">
-      <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="max-w-6xl w-full mx-auto lg:flex flex-col md:flex-row items-center md:space-x-20 px-4 ">
+        <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="flex flex-col items-start lg:text-center mb-8">
+            <img src={logo} alt="AgriNex" className="mb-4" />
+            <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
+            <p className="text-gray-600 mb-6">
+              Lets get you started on a journey with us today
+            </p>
+          </div>
 
-      </form>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
+            <div>
+              <input
+                type="email"
+                placeholder="Email"
+                {...register("email")}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <p className="p-0 m-0 text-danger">{errors.email?.message}</p>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Name"
+                {...register("username")}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <p className="p-0 m-0 text-danger">{errors.username?.message}</p>
+            </div>
+
+            <div className="relative">
+              <input
+                type={showPwd ? "text" : "password"}
+                placeholder="Password"
+                {...register("password")}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPwd((v) => !v)}
+                className="absolute inset-y-0 right-3 flex items-center"
+              >
+                {showPwd ? (
+                  <img src={EyeIcon} alt="" />
+                ) : (
+                  <img src={EyeOffIcon} alt="" />
+                )}
+              </button>
+              <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
+            </div>
+
+            <div className="relative">
+              <input
+                type={showConfirmPwd ? "text" : "password"}
+                placeholder="Confirm Password"
+                {...register("confirmPwd")}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPwd((v) => !v)}
+                className="absolute inset-y-0 right-3 flex items-center"
+              >
+                {showConfirmPwd ? (
+                  <img src={EyeIcon} alt="" />
+                ) : (
+                  <img src={EyeOffIcon} alt="" />
+                )}
+              </button>
+              <p className="p-0 m-0 text-danger">
+                {errors.confirmPwd?.message}
+              </p>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition disabled:opacity-50"
+              disabled={isSubmitting}
+            >
+              {isLoading ? "Loading..." : "Sign Up"}
+            </button>
+          </form>
+
+          <div className="flex items-center my-4">
+            <div className="flex-grow h-px bg-gray-300"></div>
+            <span className="mx-2 text-gray-500 uppercase text-xs">or</span>
+            <div className="flex-grow h-px bg-gray-300"></div>
+          </div>
+
+          <button className="w-full py-3 border border-gray-300 rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
+            <img src={FcGoogle} alt="" />
+            <span>Sign up with Google</span>
+          </button>
+
+          <p className="mt-6 text-center text-gray-700">
+            Already have an account?{" "}
+            <Link to="/auth/signin" className="text-green-600 hover:underline">
+              Sign In
+            </Link>
+          </p>
+        </div>
+
+        <div className="hidden lg:block w-full md:w-1/2">
+          <img src={newSideImg} alt="New Side Image" className="w-full my-5" />
+        </div>
+      </div>
     </div>
   );
 };
