@@ -68,18 +68,16 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex w-full  justify-center items-center">
-      <div className="w-full lg:w-1/2 flex items-center justify-center md:m-15 h-screen">
-        <div className="w-full flex flex-col lg:items-start px-8">
-          <div className="flex flex-col items-start pb-8">
-            <img src={logo} alt="AgriNex" className="pb-13" />
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="max-w-6xl w-full mx-auto lg:flex flex-col md:flex-row items-center md:space-x-20 px-4 ">
+        <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="flex flex-col items-start lg:text-center mb-8">
+            <img src={logo} alt="AgriNex" className="mb-4" />
+            <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
+            <p className="text-gray-600 mb-6">
+              Lets get you started on a journey with us today
+            </p>
           </div>
-            <div>
-              <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
-              <p className="text-gray-600 mb-6">
-                Lets get you started on a journey with us today
-              </p>
-            </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
             <div>
