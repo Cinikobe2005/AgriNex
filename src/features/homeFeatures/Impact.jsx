@@ -4,7 +4,7 @@ import { ImpactDetails } from "../../utils/DropDown";
 
 const Impact = () => {
   return (
-    <main className="mt-20">
+    <main className="mt-20 w-11/12 container mx-auto">
       <div className="text-center mb-10">
         <p className="text-gray">PROOF IN PROGRESS</p>
         <h1 className="md:text-[40px] text-[30px] font-bold">
