@@ -10,7 +10,7 @@ const Button = ({ children, className, onClick, type, size = "md", color }) => {
   const sizeClass = sizeMap[size] || sizeMap.md;
   return (
     <button
-      className={`${className} ${sizeClass} rounded-[6px]  font-manrope hover:bg-green-800 cursor-pointer transition duration-300 ease-in-out`}
+      className={`${className} ${sizeClass} rounded-[56px]  font-manrope hover:bg-green-800 cursor-pointer transition duration-300 ease-in-out`}
       onClick={onClick}
       type={type}
     >

@@ -1,14 +1,22 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark, cupcake;
+  }
 
 @theme{
     --font-manrope: "Manrope", sans-serif;
-    --color-green: #357A38;
+    --color-green: #357A38; 
     --color-black: #000000;
+    --color-blacklight: #3A3A3A;
     --color-grayblack: #3B3B3B;
     --color-gray: #949494;
+    --color-graylight: #E3EDE4;
     --color-white: #FFFFFF;
-    --color-yello: "#FAC02D";
+    --color-yellow: "#FAC02D";
     --color-danger: #FF0000
+    
 }
 body{
     font-family: var(--font-manrope);
