@@ -25,3 +25,12 @@ export const LoginSchema = yup
       .min(6, "min lenght of password should be atleast 6 chrs"),
   })
   .required();
+
+
+  export const forgotPasswordSchema = yup.object().shape({
+    email: yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+  });
+
+  

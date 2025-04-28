@@ -111,7 +111,7 @@ const LoginPage = () => {
               <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
             </div>
             <div className="flex justify-end">
-              <Link>
+              <Link to="/auth/forgot-password" className="underline">
                 <p>Forgot Password?</p>
               </Link>
             </div>
