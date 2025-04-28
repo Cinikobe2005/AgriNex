@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 import logoWhite from "../assets/logoWhite.png";
-import twitter from "../assets/twitter.png"
-import intstagram from "../assets/instagram.png"
-import facebook from "../assets/facebook.png"
-
+import twitter from "../assets/twitter.png";
+import intstagram from "../assets/instagram.png";
+import facebook from "../assets/facebook.png";
+import { Link, useNavigate } from "react-router";
 
 const Footer = () => {
   return (
     <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-6 md:px-10 lg:px-20 w-[100%]">
-      <footer className="w-[100%] md:w-[80%]">
+      <footer className="w-11/12 mx-auto container">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">
             <img src={logoWhite} alt="AgriNex Logo" />
@@ -20,17 +20,33 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-6">
             <ul className="text-white leading-10">
               <li className="font-bold">Quick links</li>
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Our Resources</li>
-              <li>Contact Us</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/">Our Resources</Link>
+              </li>
+              <li>
+                <Link to="/contact-us">Contact Us</Link>
+              </li>
             </ul>
             <ul className="text-white leading-10">
               <li className="font-bold">Help</li>
-              <li>FAQs</li>
-              <li>Terms & Conditions</li>
-              <li>Privacy Policy</li>
-              <li>How it Works</li>
+              <li>
+                <Link to="/">Faqs</Link>
+              </li>
+              <li>
+                <Link to="/">Terms & Conditions</Link>
+              </li>
+              <li>
+                <Link to="/">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to="/our-work">How it Works</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -45,11 +61,11 @@ const Footer = () => {
         </div>
         <div className="flex-grow h-px bg-gray-300 mt-10 font-bold w-[100%]"></div>
         <div className="text-center mt-4 text-white">
-          <p>Copyright AgriNex 2025 All rights reserved</p>
+          <p>&copy; Copyright AgriNex 2025 All rights reserved</p>
         </div>
       </footer>
     </div>
   );
-}
+};
 
-export default Footer
+export default Footer;
