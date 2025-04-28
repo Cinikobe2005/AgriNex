@@ -3,7 +3,7 @@ import React from 'react';
 const JoinUs = () => {
     return (
         <main className="py-13 px-6 md:px-10 text-center">
-            <div className="w-11/12 container mx-auto flex flex-col justify-center items-center gap-5 bg-[url(src/assets/joinusImg.png)] bg-cover bg-center text-white rounded-[32px] md:rounded-[52px]  max-w-[1240px] h-[300px] md:h-[424px] ">
+            <div className="w-11/12 container mx-auto flex flex-col justify-center items-center gap-5 bg-[url(/joinusImg.png)] bg-cover bg-center text-white rounded-[32px] md:rounded-[52px]  max-w-[1240px] h-[300px] md:h-[424px] ">
                 <h1 className="text-[24px] md:text-[32px] lg:text-[40px] font-bold w-full max-w-[90%] md:max-w-[631px]">
                     Join the Agricultural Revolution Today!
                 </h1>
