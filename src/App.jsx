@@ -8,6 +8,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import About from "./pages/About";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
+import ForgotPassword from "./pages/auth/forgotPassword";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<LoginPage />} />
+          <Route path="/auth/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
