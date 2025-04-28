@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { Toaster } from "react-hot-toast";
 import LoginPage from "./pages/auth/LoginPage";
 import About from "./pages/About";
-import Work from "./pages/work";
+import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 
 function App() {
