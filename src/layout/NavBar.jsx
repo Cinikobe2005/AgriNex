@@ -32,13 +32,15 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center bg-white py-4 px-6 md:px-10 lg:px-20">
+      <nav className=" bg-white py-4 px-6 md:px-10 lg:px-20">
+        <div className="w-11/12 container mx-auto flex justify-between items-center">
+
         <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
         <ul className="hidden lg:flex space-x-4">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "hover:text-green cursor-pointer " : "text-green"
+              isActive ? "hover:text-green cursor-pointer " : "text-green "
             }
           >
             Home
@@ -97,6 +99,8 @@ const NavBar = () => {
             <img src={menuIcon} alt="Menu Icon" className="w-8 h-8 " />
           </button>
         </div>
+        </div>
+
       </nav>
 
       <div

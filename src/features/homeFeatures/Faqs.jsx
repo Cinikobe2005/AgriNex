@@ -4,6 +4,8 @@ import { FaqsDetails } from "../../utils/DropDown";
 const Faqs = () => {
   return (
     <main className="py-4 px-6 md:px-10 lg:px-20">
+        <div className="w-11/12 mx-auto container">
+
       <div>
         <h1 className="text-center text-gray">
         NEED HELP?
@@ -32,6 +34,7 @@ const Faqs = () => {
         })}
       </div>
       <p className="text-center my-3 text-gray">If your question has not been answered, please send it to us at info@agrinex.com</p>
+        </div>
     </main>
   );
 };

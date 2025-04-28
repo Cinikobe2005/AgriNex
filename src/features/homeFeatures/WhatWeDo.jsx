@@ -20,10 +20,9 @@ const WhatWeDo = () => {
                     }`}
                 />
                 <div className="w-full lg:w-auto">
-                    {WeDo?.map((item, index) => {
-                        return (
+                    {WeDo?.map((item)=>(
                             <div
-                                key={index}
+                                key={item.id}
                                 className="collapse collapse-arrow border-gray-100 border-b-2 rounded-b-none space-y-4 hover:text-green"
                             >
                                 <input
@@ -38,9 +37,10 @@ const WhatWeDo = () => {
                                     {item.content}
                                 </div>
                             </div>
-                        );
-                    })}
+                        )
+                    )}
                 </div>
+                
             </div>
         </main>
     );

@@ -5,8 +5,8 @@ import greenTick from "../../assets/greenTick.svg";
 
 const Benefits = () => {
     return (
-        <main className="mt-20 py-13 px-6 md:px-10 lg:px-20 bg-graylight">
-            <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10">
+        <main className="mt-20 py-13 px-6  bg-graylight">
+            <div className="w-11/12 container mx-auto flex flex-col lg:flex-row-reverse justify-center items-center gap-10">
                 <img
                     src={BenefitsImg}
                     alt=""

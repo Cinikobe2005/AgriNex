@@ -4,6 +4,8 @@ import { TestimonalDetails } from "../../utils/DropDown";
 const Testimonal = () => {
   return (
     <main className="md:p-20 p-6 my-[44px] flex flex-col gap-10">
+      <div className="w-11/12 mx-auto container">
+
       <div className="text-center">
         <p className="text-gray">WHAT THEY SAY</p>
         <h1 className="md:text-[40px] text-[30px] font-bold">Testimonial</h1>
@@ -41,6 +43,7 @@ const Testimonal = () => {
             </div>
           );
         })}
+      </div>
       </div>
     </main>
   );
