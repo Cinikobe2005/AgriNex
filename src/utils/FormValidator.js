@@ -7,11 +7,11 @@ export const SignInSchema = yup
     password: yup
       .string()
       .required("password cannot be empty")
-      .min(8, "min lenght of password should be atleast 8 chrs"),
+      .min(6, "min lenght of password should be atleast 6 chrs"),
     confirmPwd: yup
       .string()
       .required("confirm password cannot be empty")
-      .min(8, "min lenght of password should be atleast 8 chrs")
+      .min(6, "min lenght of password should be atleast 6 chrs")
       .oneOf([yup.ref("password")], "password do not match"),
   })
   .required();
@@ -22,6 +22,6 @@ export const LoginSchema = yup
     password: yup
       .string()
       .required("password cannot be empty")
-      .min(8, "min lenght of password should be atleast 8 chrs"),
+      .min(6, "min lenght of password should be atleast 6 chrs"),
   })
   .required();

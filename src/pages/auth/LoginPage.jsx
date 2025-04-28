@@ -42,7 +42,8 @@ const LoginPage = () => {
 
       if (response.status === 200 || response.data.success) {
         toast.success(response.data.message || "Sign in successful!");
-        console.log(response.data.message);
+        console.log(response.data);
+        localStorage.setItem("user", JSON.stringify(response.data.token));
         navigate("/");
       } else {
         toast.error(
