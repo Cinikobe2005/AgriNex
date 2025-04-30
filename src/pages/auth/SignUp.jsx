@@ -72,7 +72,9 @@ const SignUp = () => {
       <div className="w-full lg:w-11/12 flex items-center justify-center ">
         <div className="w-full lg:w-11/12 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
-            <img src={logo} alt="AgriNex" className="mb-4" />
+            <Link to="/">
+              <img src={logo} alt="AgriNex" className="mb-4" />
+            </Link>
             <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
             <p className="text-gray-600 mb-6">
               Lets get you started on a journey with us today

@@ -70,7 +70,9 @@ const LoginPage = () => {
       <div className="w-full lg:w-11/12 flex items-center justify-center">
         <div className="w-full lg:w-11/12 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
+            <Link to="/">
             <img src={logo} alt="AgriNex" className="pb-13" />
+            </Link>
           </div>
           <div>
             <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
@@ -109,7 +111,7 @@ const LoginPage = () => {
               <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
             </div>
             <div className="flex justify-end">
-              <Link>
+              <Link to="/auth/forgot-password" className="underline">
                 <p>Forgot Password?</p>
               </Link>
             </div>
