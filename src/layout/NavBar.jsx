@@ -9,7 +9,6 @@ import profile from "../assets/profile.svg";
 import { useEffect } from "react";
 
 const NavBar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isToken, setIsToken] = useState(false);
 
   useEffect(() => {
@@ -21,10 +20,6 @@ const NavBar = () => {
     }
   }, []);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("user");
     setIsToken(false);
@@ -32,127 +27,140 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className=" bg-white py-4 px-6 md:px-10 lg:px-20">
+      <nav className=" bg-white py-4 px-6 md:px-[90px] lg:px-[100px]">
         <div className="w-11/12 container mx-auto flex justify-between items-center">
-
-        <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
-        <ul className="hidden lg:flex space-x-4">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "hover:text-green cursor-pointer " : "text-green "
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "hover:text-green cursor-pointer" : "text-green"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/our-work"
-            className={({ isActive }) =>
-              isActive ? "hover:text-green cursor-pointer" : "text-green"
-            }
-          >
-            Our Work
-          </NavLink>
-        
-          <NavLink
-            to="/contact-us"
-            className={({ isActive }) =>
-              isActive ? "hover:text-green cursor-pointer" : "text-green"
-            }
-          >
-            Contact Us
-          </NavLink>
-        </ul>
-
-        {isToken ? (
-          <div className="hidden lg:flex space-x-2 items-center">
-            <img src={profile} alt="" />
-            <Link
-              className="text-danger text-[20px] font-medium"
+          <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
+          <ul className="hidden lg:flex space-x-4">
+            <NavLink
               to="/"
-              onClick={handleLogout}
+              className={({ isActive }) =>
+                isActive
+                  ? "hover:text-green cursor-pointer active-nav-item "
+                  : "text-green "
+              }
             >
-              Logout
-            </Link>
-          </div>
-        ) : (
-          <div className="hidden lg:flex space-x-2">
-            <Link to="/auth/signin" onClick={toggleSidebar}>
-              <Button className="hover:text-white">SignIn</Button>
-            </Link>
-            <Link to="/auth/signup" onClick={toggleSidebar}>
-              <Button className="bg-green text-white">SignUp</Button>
-            </Link>
-          </div>
-        )}
+              Home
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "hover:text-green cursor-pointer active-nav-item"
+                  : "text-green"
+              }
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/our-work"
+              className={({ isActive }) =>
+                isActive
+                  ? "hover:text-green cursor-pointer active-nav-item"
+                  : "text-green"
+              }
+            >
+              Our Work
+            </NavLink>
 
-        <div className="lg:hidden">
-          <button onClick={toggleSidebar}>
-            <img src={menuIcon} alt="Menu Icon" className="w-8 h-8 " />
-          </button>
-        </div>
-        </div>
+            <NavLink
+              to="/contact-us"
+              className={({ isActive }) =>
+                isActive
+                  ? "hover:text-green cursor-pointer active-nav-item"
+                  : "text-green"
+              }
+            >
+              Contact Us
+            </NavLink>
+          </ul>
 
+          {isToken ? (
+            <div className="hidden lg:flex space-x-2 items-center">
+              <img src={profile} alt="" />
+              <Link
+                className="text-danger text-[20px] font-medium"
+                to="/"
+                onClick={handleLogout}
+              >
+                Logout
+              </Link>
+            </div>
+          ) : (
+            <div className="hidden lg:flex space-x-2">
+              <Link to="/auth/signin">
+                <Button className="hover:text-white">SignIn</Button>
+              </Link>
+              <Link to="/auth/signup">
+                <Button className="bg-green text-white">SignUp</Button>
+              </Link>
+            </div>
+          )}
+
+          <div className="lg:hidden">
+            <div className="drawer drawer-end">
+              <input
+                id="my-drawer-4"
+                type="checkbox"
+                className="drawer-toggle"
+              />
+              <div className="drawer-content">
+                {/* Page content here */}
+                <label htmlFor="my-drawer-4" className="drawer-button ">
+                  <img src={menuIcon} alt="Menu Icon" className="w-8 h-8 " />
+                </label>
+              </div>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer-4"
+                  aria-label="close sidebar"
+                  className="drawer-overlay "
+                ></label>
+
+                <div className="menu bg-white text-base-content min-h-full w-50 p-4 flex justify-between pt-5 ">
+                  {/* Sidebar content here */}
+                  <ul className="flex flex-col space-y-4">
+                    <li className="hover:text-green cursor-pointer">Home</li>
+                    <li className="hover:text-green cursor-pointer">About</li>
+
+                    <li className="hover:text-green cursor-pointer mb-5">
+                      Contact Us
+                    </li>
+                  </ul>
+                  {isToken ? (
+                    <div>
+                      <hr />
+                      <div className="flex  items-center space-x-2 my-2 ">
+                        <img src={profile} alt="" className="w-10" />
+                        <Link
+                          className="text-danger"
+                          to="/"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </Link>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col space-y-2  ">
+                      <hr />
+                      <Link to="/auth/signin">
+                        <Button className="hover:text-white " size="sm">
+                          Sign In
+                        </Button>
+                      </Link>
+                      <Link to="/auth/signup">
+                        <Button className="bg-green text-white " size="sm">
+                          Sign Up
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
-
-      <div
-        className={`fixed  top-0 right-0 h-full md:w-[30%] w-[45%] bg-white shadow-lg z-50 transform transition-transform duration-300 ${
-          isSidebarOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <img
-          src={menuCloseIcon}
-          alt="Close Menu"
-          className="ms-35 mt-5 cursor-pointer  "
-          onClick={toggleSidebar}
-        />
-        <ul className="flex flex-col space-y-4 p-6">
-          <li
-            className="hover:text-green cursor-pointer"
-            onClick={toggleSidebar}
-          >
-            Home
-          </li>
-          <li
-            className="hover:text-green cursor-pointer"
-            onClick={toggleSidebar}
-          >
-            About
-          </li>
-         
-          <li
-            className="hover:text-green cursor-pointer"
-            onClick={toggleSidebar}
-          >
-            Contact Us
-          </li>
-        </ul>
-        {isToken ? (
-          <div className="flex flex-col space-y-2 p-6">
-            <img src={profile} alt="" />
-            <Link className="text-danger" to="/" onClick={handleLogout}>
-              Logout
-            </Link>
-          </div>
-        ) : (
-          <div className="flex flex-col space-y-2 p-6 ">
-            <Link to="/auth/signin" onClick={toggleSidebar}>
-              <Button className="hover:text-white " size="sm">SignIn</Button>
-            </Link>
-            <Link to="/auth/signup" onClick={toggleSidebar}>
-              <Button className="bg-green text-white " size="sm">SignUp</Button>
-            </Link>
-          </div>
-        )}
-      </div>
     </>
   );
 };

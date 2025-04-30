@@ -7,7 +7,7 @@ import facebook from "../assets/facebook.png"
 
 const Footer = () => {
   return (
-    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-6 md:px-10 lg:px-20 w-[100%]">
+    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-6 md:px-[90px] lg:px-[100px] w-[100%]">
       <footer className="w-[100%] md:w-[80%]">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">
