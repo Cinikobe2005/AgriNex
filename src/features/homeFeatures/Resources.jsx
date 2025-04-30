@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 
 const Resources = () => {
   return (
-    <main className="py-4  ps-6 md:px-10 lg:px-20 flex flex-col gap-10">
+    <main className="py-4 px-6 md:px-[90px] lg:px-[100px]">
       <div className="w-11/12 mx-auto container">
         <div className="text-center">
           <p className="text-gray">GROW SMARTER</p>

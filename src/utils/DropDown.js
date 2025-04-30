@@ -201,6 +201,18 @@ export const TestimonalDetails = [
     start: startImg,
     rating: "5.6",
   },
+  {
+    id: 4,
+    img: testimonal3,
+    title: "AgriDev",
+    content:
+      "Agrinex’s mobile platform is a game-changer. It connects me to markets, weather alerts, and modern farming techniques—all from my phone.",
+    icon: icon,
+    name: "Adebayo K.",
+    job: "Maize Farmer",
+    start: startImg,
+    rating: "5.6",
+  },
 ];
 
 export const FaqsDetails = [

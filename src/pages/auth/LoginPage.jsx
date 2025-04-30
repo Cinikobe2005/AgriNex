@@ -66,12 +66,12 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="flex w-full">
-      <div className="w-full lg:w-1/2 flex items-center justify-center">
-        <div className="max-w-md w-full">
-          <div className="flex flex-col items-start mb-8">
+    <div className="min-h-screen flex items-center justify-center p-3 md:p-0 w-11/12 mx-auto container">
+      <div className="w-full lg:w-11/12 flex items-center justify-center">
+        <div className="w-full lg:w-11/12 flex flex-col">
+          <div className="flex flex-col items-start lg:text-center mb-8">
             <Link to="/">
-              <img src={logo} alt="AgriNex" className="mb-4" />
+            <img src={logo} alt="AgriNex" className="pb-13" />
             </Link>
           </div>
           <div>
@@ -144,7 +144,7 @@ const LoginPage = () => {
           </p>
         </div>
       </div>
-      <div className="hidden lg:block w-1/2 h-full">
+      <div className="hidden lg:block w-11/12 h-full">
         <img
           src={newSideImg}
           alt="New Side Image"

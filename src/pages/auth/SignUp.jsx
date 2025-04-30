@@ -68,9 +68,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-6xl w-full mx-auto lg:flex flex-col md:flex-row items-center md:space-x-20 px-4 ">
-        <div className="w-full lg:w-1/2 flex flex-col">
+    <div className="min-h-screen flex items-center justify-center p-3 md:p-0 w-11/12 mx-auto container">
+      <div className="w-full lg:w-11/12 flex items-center justify-center ">
+        <div className="w-full lg:w-11/12 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
             <Link to="/">
               <img src={logo} alt="AgriNex" className="mb-4" />
@@ -174,8 +174,11 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block">
-        <img src={newSideImg} alt="New Side Image" />
+      <div className="hidden lg:block w-11/12 h-full">
+        <img
+          src={newSideImg}
+          alt="New Side Image"
+        />
       </div>
     </div>
   );
