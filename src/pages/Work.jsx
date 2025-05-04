@@ -1,9 +1,25 @@
-import React from 'react'
+import React from "react";
+import WorkMain from "../features/workFeatures/workMain";
+import Impact from "../features/homeFeatures/Impact";
+import Resources from "../features/homeFeatures/Resources";
+import Testimonal from "../features/homeFeatures/Testimonal";
+import JoinUs from "../features/homeFeatures/JoinUs";
+import WhatWeDoMain from "../features/workFeatures/WhatWeDoMain";
+
 
 const Work = () => {
   return (
-    <main className='py-4 px-6 md:px-[90px] lg:px-[100px]'>Work</main>
-  )
-}
+    <main>
+      <WorkMain />
+      <WhatWeDoMain />
+      <div className="bg-graylight">
+        <Impact />
+      </div>
+      <Resources />
+      <Testimonal />
+      <JoinUs />
+    </main>
+  );
+};
 
-export default Work
+export default Work;
