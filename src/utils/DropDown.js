@@ -20,6 +20,11 @@ import testimonal2 from "../assets/testimonal2.png";
 import testimonal3 from "../assets/testimonal3.png";
 import icon from "../assets/icon.png";
 import startImg from "../assets/start.svg";
+import monitor from "../assets/monitor.png";
+import precisionAgriculture from "../assets/precisionAgriculture.png";
+import marketAccess from "../assets/marketAccess.png";
+import trainingAdvisory from "../assets/trainingAdvisory.png";
+import sustainableAgriculture from "../assets/sustainableAgriculture.png";
 
 export const WeDo = [
   {
@@ -252,5 +257,40 @@ export const FaqsDetails = [
     title: "What are AgriNex’s core values?",
     content:
       "Our core values include integrity, innovation, sustainability, and collaboration. We believe in building strong partnerships with farmers and stakeholders to drive positive change in agriculture.",
+  },
+];
+
+
+
+export const services = [
+  {
+    title: "Smart Farming Tools",
+    description:
+      "We develop mobile-first tools to provide real-time weather alerts, planting ti…",
+    icon: monitor,
+  },
+  {
+    title: "Precision Agriculture",
+    description:
+      "Using drones, IoT sensors, and AI, we help farmers optimize inputs, reduce w…",
+    icon: precisionAgriculture,
+  },
+  {
+    title: "Market Access & Funds",
+    description:
+      "We connect smallholder farmers to credit, insurance, and marketplaces to ensur…",
+    icon: marketAccess,
+  },
+  {
+    title: "Training & Advisory",
+    description:
+      "Digital guides and in-person support equip farmers with the skills to adopt modern,…",
+    icon: trainingAdvisory,
+  },
+  {
+    title: "Sustainable Agriculture",
+    description:
+      "Our platform supports regenerative farming, organic inputs, and enviro…",
+    icon: sustainableAgriculture,
   },
 ];
