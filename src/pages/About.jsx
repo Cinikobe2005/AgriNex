@@ -1,12 +1,15 @@
-import React from 'react'
-
+import React from "react";
+import Testimonial from "../features/homeFeatures/Testimonal";
+import Faqs from "../features/homeFeatures/Faqs";
 const About = () => {
   return (
-    <main className='py-4 px-6 md:px-[90px] lg:px-[100px]'>
-      <h1>About page</h1>
-
+    <main className="">
+      <div className="bg-graylight">
+        <Testimonial />
+        <Faqs />
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default About
+export default About;

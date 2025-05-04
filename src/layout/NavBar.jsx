@@ -35,8 +35,8 @@ const NavBar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "hover:text-green cursor-pointer active-nav-item "
-                  : "text-green "
+                  ? " cursor-pointer active-nav-item "
+                  : "text-black hover:text-green "
               }
             >
               Home
@@ -46,7 +46,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "hover:text-green cursor-pointer active-nav-item"
-                  : "text-green"
+                  : "text-black hover:text-green"
               }
             >
               About
@@ -56,7 +56,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "hover:text-green cursor-pointer active-nav-item"
-                  : "text-green"
+                  : "text-black hover:text-green"
               }
             >
               Our Work
@@ -67,7 +67,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "hover:text-green cursor-pointer active-nav-item"
-                  : "text-green"
+                  : "text-black hover:text-green"
               }
             >
               Contact Us
