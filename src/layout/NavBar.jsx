@@ -29,7 +29,9 @@ const NavBar = () => {
     <>
       <nav className=" bg-white py-4 px-6 md:px-[90px] lg:px-[100px]">
         <div className="w-11/12 container mx-auto flex justify-between items-center">
-          <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
+          <Link to="/">
+            <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
+          </Link>
           <ul className="hidden lg:flex space-x-4">
             <NavLink
               to="/"
@@ -88,14 +90,14 @@ const NavBar = () => {
           ) : (
             <div className="hidden lg:flex space-x-2">
               <Link to="/auth/signin">
-                <Button className="hover:text-white">SignIn</Button>
+                <Button className="hover:text-white">Sign In</Button>
               </Link>
               <Link to="/auth/signup">
-                <Button className="bg-green text-white">SignUp</Button>
+                <Button className="bg-green text-white">Sign Up</Button>
               </Link>
             </div>
           )}
-
+          {/* ===================================================== */}
           <div className="lg:hidden">
             <div className="drawer drawer-end">
               <input
@@ -119,12 +121,48 @@ const NavBar = () => {
                 <div className="menu bg-white text-base-content min-h-full w-50 p-4 flex justify-between pt-5 ">
                   {/* Sidebar content here */}
                   <ul className="flex flex-col space-y-4">
-                    <li className="hover:text-green cursor-pointer">Home</li>
-                    <li className="hover:text-green cursor-pointer">About</li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "hover:text-green cursor-pointer active-nav-item"
+                          : "text-green"
+                      }
+                    >
+                      Home{" "}
+                    </NavLink>
+                    <NavLink
+                      to="/about"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "hover:text-green cursor-pointer active-nav-item"
+                          : "text-green"
+                      }
+                    >
+                      About{" "}
+                    </NavLink>
 
-                    <li className="hover:text-green cursor-pointer mb-5">
+                    <NavLink
+                      to="/contact-us"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "hover:text-green cursor-pointer active-nav-item"
+                          : "text-green"
+                      }
+                    >
                       Contact Us
-                    </li>
+                    </NavLink>
+
+                    <NavLink
+                      to="/our-work"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "hover:text-green cursor-pointer active-nav-item"
+                          : "text-green"
+                      }
+                    >
+                      Our Work{" "}
+                    </NavLink>
                   </ul>
                   {isToken ? (
                     <div>
@@ -159,6 +197,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+          {/* ============================ */}
         </div>
       </nav>
     </>
