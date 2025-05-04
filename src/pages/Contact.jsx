@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import ContactusMain from "../features/contactisFeatures/ContactusMain";
+import GetInTouch from "../features/contactisFeatures/GetInTouch";
 
 const Contact = () => {
   return (
-    <main className='py-4 px-6 md:px-[90px] lg:px-[100px]'>Contact</main>
-  )
-}
+    <main className="">
+      <ContactusMain />
 
-export default Contact
+      <GetInTouch />
+    </main>
+  );
+};
+
+export default Contact;

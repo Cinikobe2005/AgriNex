@@ -24,7 +24,7 @@ body {
 .active-nav-item {
   text-decoration: none;
   position: relative;
-  color: var(--color-black);
+  color: var(--color-green);
 }
 
 .active-nav-item::after {
@@ -33,7 +33,7 @@ body {
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-green);
   transition: all 0.3s ease;
 }

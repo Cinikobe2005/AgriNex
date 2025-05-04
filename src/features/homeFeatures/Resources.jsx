@@ -32,7 +32,7 @@ const Resources = () => {
                     <p className="text-left mb-4 text-[16px] text-gray">
                       {item.content}
                     </p>
-                    <Button className="text-yellow-500 border-1 text-[16px] border-yellow-500 text-left px-[30px] py-[12px]">
+                    <Button className="text-green-500 border-1 text-[16px] border-green-500 text-left px-[30px] py-[12px]">
                       Details
                     </Button>
                   </div>
