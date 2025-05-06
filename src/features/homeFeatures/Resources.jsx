@@ -6,7 +6,7 @@ const Resources = () => {
   return (
     <main className="py-4 px-6 md:px-[90px] lg:px-[100px]">
       <div className="w-11/12 mx-auto container">
-        <div className="text-center">
+        <div className="text-center py-10">
           <p className="text-gray">GROW SMARTER</p>
           <h1 className="md:text-[40px] text-[30px] font-bold">
             Our Resources

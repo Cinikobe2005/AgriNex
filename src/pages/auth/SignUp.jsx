@@ -10,6 +10,7 @@ import { SignInSchema } from "../../utils/FormValidator";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
+import GoogleSignInButton from "../../components/GoogleSignInButton";
 
 const SignUp = () => {
   const [showPwd, setShowPwd] = useState(false);
@@ -73,7 +74,7 @@ const SignUp = () => {
         <div className="w-full lg:w-11/12 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
             <Link to="/">
-              <img src={logo} alt="AgriNex" className="mb-4" />
+              <img loading="lazy" src={logo} alt="AgriNex" className="mb-4" />
             </Link>
             <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
             <p className="text-gray-600 mb-6">
@@ -114,9 +115,9 @@ const SignUp = () => {
                 className="absolute inset-y-0 right-3 flex items-center"
               >
                 {showPwd ? (
-                  <img src={EyeIcon} alt="" />
+                  <img loading="lazy" src={EyeIcon} alt="" />
                 ) : (
-                  <img src={EyeOffIcon} alt="" />
+                  <img loading="lazy" src={EyeOffIcon} alt="" />
                 )}
               </button>
               <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
@@ -135,9 +136,9 @@ const SignUp = () => {
                 className="absolute inset-y-0 right-3 flex items-center"
               >
                 {showConfirmPwd ? (
-                  <img src={EyeIcon} alt="" />
+                  <img loading="lazy" src={EyeIcon} alt="" />
                 ) : (
-                  <img src={EyeOffIcon} alt="" />
+                  <img loading="lazy" src={EyeOffIcon} alt="" />
                 )}
               </button>
               <p className="p-0 m-0 text-danger">
@@ -160,10 +161,8 @@ const SignUp = () => {
             <div className="flex-grow h-px bg-gray-300"></div>
           </div>
 
-          <button className="w-full py-3 border border-gray-300 rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
-            <img src={FcGoogle} alt="" />
-            <span>Sign up with Google</span>
-          </button>
+          {/* Use the GoogleSignInButton Component */}
+          <GoogleSignInButton buttonText="Sign up with Google" />
 
           <p className="mt-6 text-center text-gray-700">
             Already have an account?{" "}
@@ -175,10 +174,7 @@ const SignUp = () => {
       </div>
 
       <div className="hidden lg:block w-11/12 h-full">
-        <img
-          src={newSideImg}
-          alt="New Side Image"
-        />
+        <img src={newSideImg} alt="New Side Image" />
       </div>
     </div>
   );

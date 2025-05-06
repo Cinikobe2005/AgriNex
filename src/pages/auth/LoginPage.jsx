@@ -10,6 +10,7 @@ import { LoginSchema, SignInSchema } from "../../utils/FormValidator";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
+import GoogleSignInButton from "../../components/GoogleSignInButton";
 
 const LoginPage = () => {
   const [showPwd, setShowPwd] = useState(false);
@@ -43,7 +44,12 @@ const LoginPage = () => {
       if (response.status === 200 || response.data.success) {
         toast.success(response.data.message || "Sign in successful!");
         console.log(response.data);
-        localStorage.setItem("user", JSON.stringify(response.data.token));
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            token: response.data.token,
+          })
+        );
         navigate("/");
       } else {
         toast.error(
@@ -71,7 +77,7 @@ const LoginPage = () => {
         <div className="w-full lg:w-11/12 flex flex-col">
           <div className="flex flex-col items-start lg:text-center mb-8">
             <Link to="/">
-            <img src={logo} alt="AgriNex" className="pb-13" />
+              <img loading="lazy" src={logo} alt="AgriNex" className="pb-13" />
             </Link>
           </div>
           <div>
@@ -103,9 +109,9 @@ const LoginPage = () => {
                 className="absolute inset-y-0 right-3 flex items-center"
               >
                 {showPwd ? (
-                  <img src={EyeIcon} alt="" />
+                  <img loading="lazy" src={EyeIcon} alt="" />
                 ) : (
-                  <img src={EyeOffIcon} alt="" />
+                  <img loading="lazy" src={EyeOffIcon} alt="" />
                 )}
               </button>
               <p className="p-0 m-0 text-danger">{errors.password?.message}</p>
@@ -131,10 +137,7 @@ const LoginPage = () => {
             <div className="flex-grow h-px bg-gray-300"></div>
           </div>
 
-          <button className="w-full py-3 border border-gray-300 rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition">
-            <img src={FcGoogle} alt="" />
-            <span>Sign in with Google</span>
-          </button>
+          <GoogleSignInButton buttonText="Sign In with Google" />
 
           <p className="mt-6 text-center text-gray-700">
             Don’t have an account?{" "}

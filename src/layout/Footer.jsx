@@ -11,7 +11,7 @@ const Footer = () => {
       <footer className="w-11/12 mx-auto container">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">
-            <img src={logoWhite} alt="AgriNex Logo" />
+            <img loading="lazy" src={logoWhite} alt="AgriNex Logo" />
             <p className="text-white font-light leading-7 w-full md:w-90 mt-4 md:mt-10">
               We drive innovation to support farmers, enhance food security and
               grow sustainable agribusiness across Africa
@@ -54,9 +54,9 @@ const Footer = () => {
         <div className="mt-6 md:mt-10">
           <p className="text-white">Follow us on</p>
           <div className="flex gap-4 mt-4">
-            <img src={twitter} alt="Twitter" />
-            <img src={intstagram} alt="Instagram" />
-            <img src={facebook} alt="Facebook" />
+            <img loading="lazy" src={twitter} alt="Twitter" />
+            <img loading="lazy" src={intstagram} alt="Instagram" />
+            <img loading="lazy" src={facebook} alt="Facebook" />
           </div>
         </div>
         <div className="flex-grow h-px bg-gray-300 mt-10 font-bold w-[100%]"></div>

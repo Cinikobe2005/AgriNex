@@ -156,7 +156,7 @@ const GetInTouch = () => {
               </div>
             </div>
           </div>
-          <img src={map} alt="" className="my-20 w-full" />
+          <img loading="lazy" src={map} alt="" className="my-20 w-full" />
         </div>
       </main>
     );

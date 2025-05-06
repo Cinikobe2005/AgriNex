@@ -23,19 +23,19 @@ const Growth = () => {
           </div>
           <div>
             <div className="flex  lg:flex-row  md:items-center md:justify-start gap-4 mb-5">
-              <img src={greenTick} alt="" />
+              <img loading="lazy" src={greenTick} alt="" />
               <p className="text-[20px] md:text-[24px] lg:text-[24px]">
                 Low-Interest Agri-Loans
               </p>
             </div>
             <div className="flex  md:flex-row   md:items-center md:justify-start gap-4 mb-5">
-              <img src={greenTick} alt="" />
+              <img loading="lazy" src={greenTick} alt="" />
               <p className="text-[20px] md:text-[24px] lg:text-[24px]">
                 Government Grant Assistance
               </p>
             </div>
             <div className="flex  md:flex-row  items-center md:items-center md:justify-start gap-4 mb-5">
-              <img src={greenTick} alt="" />
+              <img loading="lazy" src={greenTick} alt="" />
               <p className="text-[20px] md:text-[24px] lg:text-[24px]">
                 Equipment Leasing Options
               </p>
