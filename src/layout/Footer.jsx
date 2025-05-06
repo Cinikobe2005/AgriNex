@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-6 md:px-10 lg:px-20 w-[100%]">
+    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-3 md:px-10 lg:px-20 w-[100%]">
       <footer className="w-11/12 mx-auto container">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">

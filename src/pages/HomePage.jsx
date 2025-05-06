@@ -21,19 +21,23 @@ const HomePage = () => {
   return (
     <div>
       <NavBar />
-      {match ? <main className="">
-        <HomeMain/>
-        <LogoMarque/>
-        <WhatWeDo/>
-        <Benefits/>
-        <Rating/>
-        <Impact/>
-        <Growth/>
-        <Resources/>
-        <Testimonal/>
-        <Faqs/>
-        <JoinUs/>
-      </main> : <Outlet />}
+      {match ? (
+        <main className="">
+          <HomeMain />
+          <LogoMarque />
+          <WhatWeDo />
+          <Benefits />
+          <Rating />
+          <Impact />
+          <Growth />
+          <Resources />
+          <Testimonal />
+          <Faqs />
+          <JoinUs heading="Join the Agricultural Revolution Today!" />
+        </main>
+      ) : (
+        <Outlet />
+      )}
       <Footer />
     </div>
   );
