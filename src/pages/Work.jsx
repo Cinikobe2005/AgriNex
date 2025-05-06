@@ -17,7 +17,7 @@ const Work = () => {
       </div>
       <Resources />
       <Testimonal />
-      <JoinUs />
+      <JoinUs heading="Partner with us or support the change." />
     </main>
   );
 };

@@ -25,6 +25,7 @@ import precisionAgriculture from "../assets/precisionAgriculture.png";
 import marketAccess from "../assets/marketAccess.png";
 import trainingAdvisory from "../assets/trainingAdvisory.png";
 import sustainableAgriculture from "../assets/sustainableAgriculture.png";
+import agriIntelligence from "../assets/agriIntelligence.png";
 
 export const WeDo = [
   {
@@ -292,5 +293,11 @@ export const services = [
     description:
       "Our platform supports regenerative farming, organic inputs, and enviro…",
     icon: sustainableAgriculture,
+  },
+  {
+    title: "Agri-Data Intelligence",
+    description:
+      "We turn farm data into actionable insights — helping farmers make smarter decisions on crops, soil, and yields.",
+    icon: agriIntelligence,
   },
 ];
