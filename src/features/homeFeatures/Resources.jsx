@@ -1,10 +1,11 @@
 import React from "react";
 import { ResourcesDetails } from "../../utils/DropDown";
 import Button from "../../components/Button";
+import { Link } from "react-router";
 
 const Resources = () => {
   return (
-    <main className="py-4 px-6 md:px-[90px] lg:px-[100px]">
+    <main className="py-4 px-3 md:px-[90px] lg:px-[100px]">
       <div className="w-11/12 mx-auto container">
         <div className="text-center">
           <p className="text-gray">GROW SMARTER</p>
@@ -32,9 +33,12 @@ const Resources = () => {
                     <p className="text-left mb-4 text-[16px] text-gray">
                       {item.content}
                     </p>
-                    <Button className="text-green-500 border-1 text-[16px] border-green-500 text-left px-[30px] py-[12px]">
-                      Details
-                    </Button>
+                    <Link to="/auth/signup"> 
+                      {" "}
+                      <Button className="text-green-500 border-1 text-[16px] border-green-500 text-left px-[30px] py-[12px]">
+                        Details
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>

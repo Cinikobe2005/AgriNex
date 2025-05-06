@@ -3,7 +3,7 @@ import { TestimonalDetails } from "../../utils/DropDown";
 
 const Testimonal = () => {
   return (
-    <main className="py-4 px-6 md:px-[90px] lg:px-[100px]">
+    <main className="py-4 px-3 md:px-[90px] lg:px-[100px]">
       <div className="w-11/12 mx-auto container">
         <div className="text-center">
           <p className="text-gray">WHAT THEY SAY</p>

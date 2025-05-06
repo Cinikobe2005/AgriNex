@@ -2,10 +2,11 @@ import React from "react";
 import Button from "../../components/Button";
 import greenTick from "../../assets/greenTick.svg";
 import growthImg from "../../assets/Mask group.svg";
+import { Link } from "react-router";
 
 const Growth = () => {
   return (
-    <main className="py-4 px-6 md:px-[90px] lg:px-[100px] bg-graylight">
+    <main className="py-4 px-3 md:px-[90px] lg:px-[100px] bg-graylight">
       <div className="w-11/12 container mx-auto flex flex-col lg:flex-row-reverse items-center md:gap-[80px] gap-[0] justify-center my-10">
         <img
           src={growthImg}
@@ -42,9 +43,11 @@ const Growth = () => {
             </div>
           </div>
           <div className="flex justify-center lg:justify-start">
-            <Button className="bg-green text-white py-[12px] px-[16px] md:py-[16px] md:px-[20px]">
-              Check Eligibility
-            </Button>
+            <Link to="/auth/signup">
+              <Button className="bg-green text-white py-[12px] px-[16px] md:py-[16px] md:px-[20px]">
+                Check Eligibility
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
