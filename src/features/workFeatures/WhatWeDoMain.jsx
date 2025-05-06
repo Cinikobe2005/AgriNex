@@ -1,5 +1,6 @@
-mport React from "react";
+import React from "react";
 import { services } from "../../utils/DropDown";
+
 
 const WhatWeDoMain = () => {
 return (
