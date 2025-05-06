@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { Toaster } from "react-hot-toast";
 import ForgotPassword from "./pages/auth/forgotPassword";
+import ResetPassword from "./pages/auth/resetPassword";
 import Error from "./pages/auth/Error"
 
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -32,11 +33,13 @@ function App() {
             </Route>
             <Route path="/auth/signup" element={<SignUp />} />
             <Route path="/auth/signin" element={<LoginPage />} />
+            <Route
+              path="/reset-password/:resetToken"
+              element={<ResetPassword />}
+            />
             <Route path="/auth/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<Error />} />
-
-
-        </Routes>
+          </Routes>
         </Suspense>
         <Toaster />
       </BrowserRouter>

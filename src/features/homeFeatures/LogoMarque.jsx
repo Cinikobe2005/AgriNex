@@ -8,10 +8,10 @@ const LogoMarque = () => {
   return (
     <marquee className=" bg-white border-b-1 border-gray-200 py-6">
       <div className="flex justify-center items-center gap-[111px]">
-        <img src={logo1} alt="" />
-        <img src={logo2} alt="" />
-        <img src={logo3} alt="" />
-        <img src={logo4} alt="" />
+        <img loading="lazy" src={logo1} alt="" />
+        <img loading="lazy" src={logo2} alt="" />
+        <img loading="lazy" src={logo3} alt="" />
+        <img loading="lazy" src={logo4} alt="" />
       </div>
     </marquee>
   );

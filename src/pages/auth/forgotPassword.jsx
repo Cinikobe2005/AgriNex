@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
+  
   const {
     register,
     handleSubmit,
@@ -42,7 +43,7 @@ const ForgotPassword = () => {
         <div className="w-full max-w-md">
           <div className="flex flex-col items-start mb-8">
             <Link to="/">
-              <img src={logo} alt="AgriNex" className="mb-4 w-32 lg:w-40" />
+              <img loading="lazy" alt="AgriNex" src={logo}  className="mb-4 w-32 lg:w-40" />
             </Link>
           </div>
           <div>

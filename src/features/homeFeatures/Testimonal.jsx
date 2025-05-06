@@ -5,7 +5,7 @@ const Testimonal = () => {
   return (
     <main className="py-4 px-3 md:px-[90px] lg:px-[100px]">
       <div className="w-11/12 mx-auto container">
-        <div className="text-center">
+        <div className="text-center py-10">
           <p className="text-gray">WHAT THEY SAY</p>
           <h1 className="md:text-[40px] text-[30px] font-bold">Testimonial</h1>
         </div>
@@ -32,7 +32,7 @@ const Testimonal = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img src={item.start} alt="" className="w-5 h-5" />
+                        <img loading="lazy" src={item.start} alt="" className="w-5 h-5" />
                         <p className="text-[16px] font-semibold">{item.rating}</p>
                       </div>
                     </div>

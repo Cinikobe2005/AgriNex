@@ -6,7 +6,7 @@ const Faqs = () => {
     <main className="py-4 px-3 md:px-[90px] lg:px-[100px]">
         <div className="w-11/12 mx-auto container">
 
-      <div>
+      <div className="py-10">
         <h1 className="text-center text-gray">
         NEED HELP?
         </h1>
