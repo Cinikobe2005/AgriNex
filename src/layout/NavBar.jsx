@@ -37,7 +37,7 @@ const NavBar = () => {
         onError={(e) => (e.target.src = defaultProfile)}
       />
       <button
-        className="text-danger text-[20px] font-medium"
+        className="text-danger text-[20px] font-medium cursor-pointer"
         onClick={() => {
           (document.getElementById("mobile-drawer").checked = false),
             document.getElementById("logout_modal").showModal();
@@ -77,7 +77,7 @@ const NavBar = () => {
           </ul>
 
           {/* Desktop Auth */}
-          <div className="hidden lg:flex space-x-2 items-center">
+          <div className="hidden lg:flex space-x-2 items-center ">
             {isToken ? (
               renderLogoutUI()
             ) : (
@@ -127,7 +127,7 @@ const NavBar = () => {
                             className={({ isActive }) =>
                               isActive
                                 ? "hover:text-green cursor-pointer active-nav-item"
-                                : "text-green"
+                                : "text-black"
                             }
                             onClick={() =>
                               (document.getElementById(
@@ -142,7 +142,7 @@ const NavBar = () => {
                     )}
                   </ul>
                   {isToken ? (
-                    <div className="flex items-center space-x-2 my-2">
+                    <div className="flex items-center space-x-2 my-2 cursor-pointer">
                       {renderLogoutUI()}
                     </div>
                   ) : (
@@ -156,7 +156,10 @@ const NavBar = () => {
                           ).checked = false)
                         }
                       >
-                        <Button className="hover:text-white" size="sm">
+                        <Button
+                          className="hover:text-white font-bold"
+                          size="sm"
+                        >
                           Sign In
                         </Button>
                       </Link>
@@ -168,7 +171,10 @@ const NavBar = () => {
                           ).checked = false)
                         }
                       >
-                        <Button className="bg-green text-white" size="sm">
+                        <Button
+                          className="bg-green text-white font-bold"
+                          size="sm"
+                        >
                           Sign Up
                         </Button>
                       </Link>

@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Growth = () => {
   return (
-    <main className="py-4 px-3 md:px-[90px] lg:px-[100px] bg-graylight">
+    <main className="py-4 px-1 md:px-[90px] lg:px-[100px] bg-graylight">
       <div className="w-11/12 container mx-auto flex flex-col lg:flex-row-reverse items-center md:gap-[80px] gap-[0] justify-center my-10">
         <img
           src={growthImg}
