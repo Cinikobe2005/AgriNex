@@ -4,7 +4,7 @@ import { services } from "../../utils/DropDown";
 
 const WhatWeDoMain = () => {
 return (
-    <section className="py-4 px-6 md:px-[90px] lg:px-[100px] flex justify-center items-center">
+<section className="py-4 px-1 md:px-[90px] lg:px-[100px] flex justify-center items-center">
         <div className="w-11/12 container mx-auto text-center">
             <div className="text-center mb-10 pt-8">
                 <p className="text-gray-500 uppercase tracking-wide text-sm">
