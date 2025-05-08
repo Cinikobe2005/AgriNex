@@ -16,10 +16,10 @@ return (
                 {services?.map((service, index) => (
                     <div key={index} className="space-y-4">
                         <div className="text-4xl flex justify-center">
-                            <img loading="lazy" src={service.icon} alt="" />
+                            <img loading="lazy" src={service.icon} alt="" className="w-[50px]" />
                         </div>
                         <h3 className="text-xl font-semibold">{service.title}</h3>
-                        <p className="text-gray-500 max-w-xs mx-auto">
+                        <p className="text-gray-500 max-w-xs mx-auto text-[20px]">
                             {service.description}
                         </p>
                     </div>
