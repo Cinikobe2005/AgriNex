@@ -297,7 +297,7 @@ export const services = [
   {
     title: "Agri-Data Intelligence",
     description:
-      "We turn farm data into actionable insights — helping farmers make smarter decisions on crops, soil, and yields.",
+      "We turn farm data into actionable insights — helping farmers make smarter.",
     icon: agriIntelligence,
   },
 ];
