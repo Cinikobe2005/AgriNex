@@ -6,8 +6,7 @@ import OurServices from "../features/aboutFeatures/OurServices";
 import Smart from "../features/aboutFeatures/Smart";
 import Inspirational from "../features/aboutFeatures/Inspirational";
 import OurStory from "../features/aboutFeatures/OurStory";
-import WhatWeOffer from "../features/aboutFeatures/WhatWeOffer";  
-
+import WhatWeOffer from "../features/aboutFeatures/WhatWeOffer";
 
 const About = () => {
   return (
@@ -18,8 +17,7 @@ const About = () => {
       <OurStory />
       <WhatWeOffer />
       <Inspirational />
-      
-      <div className="bg-graylight">
+      <div className="bg-white">
         <Testimonial />
         <Faqs />
       </div>
