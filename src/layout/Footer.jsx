@@ -3,11 +3,26 @@ import logoWhite from "../assets/logoWhite.png";
 import twitter from "../assets/twitter.png";
 import intstagram from "../assets/instagram.png";
 import facebook from "../assets/facebook.png";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
+
+// List of available routes as seen in App.jsx
+const availableRoutes = [
+  "/", "/about", "/contact-us", "/our-work", "/auth/signup", "/auth/signin"
+];
+
+const FooterLink = ({ to, children }) => {
+  const isAvailable = availableRoutes.includes(to);
+  if (isAvailable) {
+    return <Link to={to}>{children}</Link>;
+  }
+  return (
+    <span className="cursor-not-allowed opacity-60">{children}</span>
+  );
+};
 
 const Footer = () => {
   return (
-    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-3 md:px-10 lg:px-20 w-[100%]">
+    <div className="bg-green flex flex-col md:flex-row justify-between items-center py-4 px-3 md:px-10 xl:px-20 w-[100%]">
       <footer className="w-11/12 mx-auto container">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">
@@ -21,31 +36,31 @@ const Footer = () => {
             <ul className="text-white leading-10">
               <li className="font-bold">Quick links</li>
               <li>
-                <Link to="/">Home</Link>
+                <FooterLink to="/">Home</FooterLink>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
+                <FooterLink to="/about">About Us</FooterLink>
               </li>
               <li>
-                <Link to="/">Our Resources</Link>
+                <FooterLink to="/resources">Our Resources</FooterLink>
               </li>
               <li>
-                <Link to="/contact-us">Contact Us</Link>
+                <FooterLink to="/contact-us">Contact Us</FooterLink>
               </li>
             </ul>
             <ul className="text-white leading-10">
               <li className="font-bold">Help</li>
               <li>
-                <Link to="/">Faqs</Link>
+                <FooterLink to="/faqs">Faqs</FooterLink>
               </li>
               <li>
-                <Link to="/">Terms & Conditions</Link>
+                <FooterLink to="/terms">Terms & Conditions</FooterLink>
               </li>
               <li>
-                <Link to="/">Privacy Policy</Link>
+                <FooterLink to="/privacy">Privacy Policy</FooterLink>
               </li>
               <li>
-                <Link to="/our-work">How it Works</Link>
+                <FooterLink to="/our-work">How it Works</FooterLink>
               </li>
             </ul>
           </div>

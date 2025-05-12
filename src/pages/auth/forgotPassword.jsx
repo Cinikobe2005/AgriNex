@@ -5,11 +5,17 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { forgotPasswordSchema } from "../../utils/FormValidator";
 import axios from "axios";
-import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Modal from "../../components/Modal";
+import { useState } from "react";
 
 const ForgotPassword = () => {
-  
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    color: "",
+  }); // Modal content
   const {
     register,
     handleSubmit,
@@ -22,32 +28,45 @@ const ForgotPassword = () => {
 
   const onSubmit = async (data) => {
     try {
-      const result = await axios.post(url, data);
-      if (result.status === 200) {
-        toast.success("Password reset link sent to your mail", {
-          position: "top-center",
+      const res = await axios.post(url, data);
+      if (res.status === 200) {
+        setModalContent({
+          title: " Successful",
+          message: res?.data?.message,
+          color: "text-green-500",
         });
       }
+      setIsModalOpen(true);
+      console.log(res);
     } catch (error) {
-      toast.error(error?.response?.data?.message || error?.message, {
-        position: "top-center",
-        autoClose: 7000,
+      console.log(error);
+
+      setModalContent({
+        title: " Un-Successful",
+        message: error?.response?.data?.errMsg,
+        color: "text-danger",
       });
     }
+    setIsModalOpen(true);
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full h-screen">
+    <div className="flex flex-col xl:flex-row w-full h-screen">
       {/* Left Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+      <div className="w-full xl:w-1/2 flex items-center justify-center p-6 xl:p-12">
         <div className="w-full max-w-md">
           <div className="flex flex-col items-start mb-8">
             <Link to="/">
-              <img loading="lazy" alt="AgriNex" src={logo}  className="mb-4 w-32 lg:w-40" />
+              <img
+                loading="lazy"
+                alt="AgriNex"
+                src={logo}
+                className="mb-4 w-32 xl:w-40"
+              />
             </Link>
           </div>
           <div>
-            <h1 className="text-2xl lg:text-3xl font-bold mb-2">
+            <h1 className="text-2xl xl:text-3xl font-bold mb-2">
               Forgot Password?
             </h1>
             <p className="text-gray-600 mb-6">
@@ -90,13 +109,20 @@ const ForgotPassword = () => {
       </div>
 
       {/* Right Section */}
-      <div className="hidden lg:block w-full lg:w-1/2 h-full">
+      <div className="hidden xl:block w-full xl:w-1/2 h-full">
         <img
           src={newSideImg}
           alt="New Side Image"
           className="w-full h-full object-cover"
         />
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
     </div>
   );
 };

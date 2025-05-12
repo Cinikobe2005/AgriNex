@@ -1,44 +1,63 @@
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import Modal from "./Modal"; // Import the reusable Modal component
 
 const SubscribeForm = () => {
-    const [email, setEmail] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({ title: "", message: "", color: "" }); // Modal content
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!email) {
-            toast.error("Please enter a valid email address.");
-            return;
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      setModalContent({
+        title: "Invalid Email",
+        message: "Please enter a valid email address.",
+        color: "text-red-500",
+      });
+      setIsModalOpen(true); // Open the modal
+      return;
+    }
 
-        setIsSubmitting(true);
+    setIsSubmitting(true);
 
-        try {
-            const response = await fetch("https://agrinex-backend.onrender.com/api/subscribe", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email }),
-            });
+    try {
+      const response = await fetch("https://agrinex-backend.onrender.com/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-            if (!response.ok) {
-                throw new Error("Failed to subscribe");
-            }
+      if (!response.ok) {
+        throw new Error("Failed to subscribe");
+      }
 
-            const data = await response.json();
-            toast.success(data.message);
-            setEmail(""); // Clear the input field
-        } catch (error) {
-            console.error("Subscription failed:", error);
-            toast.error("Something went wrong. Please try again.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+      const data = await response.json();
+      setModalContent({
+        title: "Subscription Successful",
+        message: data.message,
+        color: "text-green-500",
+      });
+      setIsModalOpen(true); // Open the modal
+      setEmail(""); // Clear the input field
+    } catch (error) {
+      console.error("Subscription failed:", error);
+      setModalContent({
+        title: "Subscription Failed",
+        message: "Something went wrong. Please try again.",
+        color: "text-red-500",
+      });
+      setIsModalOpen(true); // Open the modal
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-    return (
+  return (
+    <div>
+      {/* Subscription Form */}
       <form
         onSubmit={handleSubmit}
         className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-0 w-full max-w-[90%] md:max-w-[631px]"
@@ -58,7 +77,17 @@ const SubscribeForm = () => {
           {isSubmitting ? "Submitting..." : "Subscribe"}
         </button>
       </form>
-    );
+
+      {/* Reusable Modal Component */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
+    </div>
+  );
 };
 
 export default SubscribeForm;

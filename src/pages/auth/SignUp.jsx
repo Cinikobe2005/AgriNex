@@ -8,14 +8,20 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SignInSchema } from "../../utils/FormValidator";
 import axios from "axios";
-import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
 import GoogleSignInButton from "../../components/GoogleSignInButton";
+import Modal from "../../components/Modal";
 
 const SignUp = () => {
   const [showPwd, setShowPwd] = useState(false);
   const [showConfirmPwd, setShowConfirmPwd] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    color: "",
+  });
   const navigate = useNavigate();
 
   const {
@@ -45,12 +51,21 @@ const SignUp = () => {
       );
 
       if (response.status === 201 || response.data.success) {
-        toast.success(response.data.message || "Sign up successful!");
+        setModalContent({
+          title: " Successful",
+          message: response.data.message || "Sign up successful!",
+          color: "text-green-500",
+        });
+        setIsModalOpen(true);
         navigate("/auth/signin");
       } else {
-        toast.error(
-          response.data.message || "Something went wrong. Please try again."
-        );
+       
+        setModalContent({
+          title: " Un-Successful",
+          message: response.data.message || "Something went wrong. Please try again.",
+          color: "text-danger",
+        });
+        setIsModalOpen(true);
       }
     } catch (error) {
       if (
@@ -58,9 +73,19 @@ const SignUp = () => {
         error.response.data &&
         error.response.data.message
       ) {
-        toast.error(error.response.data.errMsg);
+        setModalContent({
+          title: " Un-Successful",
+          message: error.response.data.errMsg,
+          color: "text-danger",
+        });
+        setIsModalOpen(true);
       } else {
-        toast.error(error.response.data.errMsg);
+        setModalContent({
+          title: " Un-Successful",
+          message: error.response.data.errMsg,
+          color: "text-danger",
+        });
+        setIsModalOpen(true);
       }
       console.error("Error during sign up:", error.response.data.errMsg);
     } finally {
@@ -69,10 +94,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full h-screen">
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
-        <div className="w-full lg:w-11/12 flex flex-col">
-          <div className="flex flex-col items-start lg:text-center mb-8">
+    <div className="flex flex-col xl:flex-row w-full h-screen">
+      <div className="w-full xl:w-1/2 flex items-center justify-center p-6 xl:p-12">
+        <div className="w-full xl:w-11/12 flex flex-col">
+          <div className="flex flex-col items-start xl:text-center mb-8">
             <Link to="/">
               <img loading="lazy" src={logo} alt="AgriNex" className="mb-4" />
             </Link>
@@ -173,13 +198,20 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block w-full lg:w-1/2 h-full">
+      <div className="hidden xl:block w-full xl:w-1/2 h-full">
         <img
           src={newSideImg}
           alt="New Side Image"
           className="w-full h-full object-cover"
         />
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
     </div>
   );
 };

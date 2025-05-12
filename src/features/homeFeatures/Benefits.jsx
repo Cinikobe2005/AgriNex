@@ -5,17 +5,17 @@ import greenTick from "../../assets/greenTick.svg";
 
 const Benefits = () => {
     return (
-      <main className="mt-20 py-4 px-1 md:px-[90px] lg:px-[100px]  bg-graylight">
-        <div className="w-11/12 container mx-auto flex flex-col lg:flex-row-reverse justify-center items-center gap-10 md:p-5">
+      <main className="mt-20 py-4 px-1 md:px-[90px] xl:px-[100px]  bg-graylight">
+        <div className="w-11/12 container mx-auto flex flex-col xl:flex-row-reverse justify-center items-center gap-10 md:p-5">
           <img
             src={BenefitsImg}
             alt=""
-            className="w-full lg:w-auto max-w-[400px] lg:max-w-none"
+            className="w-full xl:w-auto max-w-[400px] xl:max-w-none"
           />
-          <div className="flex flex-col gap-[40px] lg:w-[50%] w-full">
+          <div className="flex flex-col gap-[40px] xl:w-[50%] w-full">
             <div className="text-left">
               <p className="text-gray text-sm md:text-base">BENEFITS</p>
-              <h1 className="text-[24px] md:text-[30px] lg:text-[35px] font-bold">
+              <h1 className="text-[24px] md:text-[30px] xl:text-[35px] font-bold">
                 What Makes Us Different
               </h1>
             </div>

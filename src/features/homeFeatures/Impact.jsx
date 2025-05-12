@@ -4,7 +4,7 @@ import { ImpactDetails } from "../../utils/DropDown";
 
 const Impact = () => {
   return (
-    <main className="mt-20 py-4 px-1 md:px-[90px] lg:px-[100px]  ">
+    <main className="mt-20 py-4 px-1 md:px-[90px] xl:px-[100px]  ">
       <div className="w-11/12 container mx-auto ">
         <div className="text-center py-10">
           <p className="text-gray">PROOF IN PROGRESS</p>
@@ -12,21 +12,21 @@ const Impact = () => {
             Our Impact in Numbers
           </h1>
         </div>
-        <div className=" flex flex-col lg:flex-row space-y-10 md:gap-[80px] justify-center items-center ">
+        <div className=" flex flex-col xl:flex-row space-y-10 md:gap-[80px] justify-center items-center ">
           <img loading="lazy" src={impactImg} alt="" className={` `} />
           <div className=" grid  grid-cols-2 gap-10">
             {ImpactDetails?.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className="flex flex-col lg:flex-row justify-start place-items-baseline gap-4"
+                  className="flex flex-col xl:flex-row justify-start place-items-baseline gap-4"
                 >
                   <img loading="lazy" src={item.img} alt="" className="mt-2" />
                   <div className="flex flex-col  ">
-                    <div className="text-[20px] lg:text-[30px] m-0">
+                    <div className="text-[20px] xl:text-[30px] m-0">
                       {item.title}
                     </div>
-                    <div className="p-0 text-gray text-[15px] lg:text-[16px]">
+                    <div className="p-0 text-gray text-[15px] xl:text-[16px]">
                       {item.content}
                     </div>
                   </div>

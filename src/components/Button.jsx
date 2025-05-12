@@ -4,7 +4,7 @@ const Button = ({ children, className, onClick, type, size = "md", color }) => {
   const sizeMap = {
     sm: "px-[16px] py-[10px] text-sm",
     md: "px-4 py-2 text-md",
-    lg: "px-[10px] py-[12px] w-100 ",
+    xl: "px-[10px] py-[12px] w-100 ",
   };
 
   const sizeClass = sizeMap[size] || sizeMap.md;
