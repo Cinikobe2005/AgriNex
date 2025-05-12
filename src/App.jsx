@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { Toaster } from "react-hot-toast";
 import ForgotPassword from "./pages/auth/forgotPassword";
-import ResetPassword from "./pages/auth/resetPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
 import Error from "./pages/auth/Error";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
