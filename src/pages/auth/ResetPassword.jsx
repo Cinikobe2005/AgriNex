@@ -5,10 +5,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPasswordSchema } from "../../utils/FormValidator";
 import logo from "../../assets/AgriNex.png";
 import newSideImg from "../../assets/aiSideImg.png";
-import toast from "react-hot-toast";
+import Modal from "../../components/Modal";
 const ResetPassword = () => {
   const { resetToken } = useParams();
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    color: "",
+  });
 
   const {
     register,
@@ -33,29 +39,49 @@ const ResetPassword = () => {
       const res = await req.json();
       console.log(res);
       if (res.success || res.status === 201) {
-        toast.success(res.message);
+        setModalContent({
+          title: " Successful",
+          message: res.message,
+          color: "text-green-500",
+        });
+        setIsModalOpen(true);
         navigate("/auth/signup");
       }
       if (!res.success || res.status === 400) {
-        toast.error(res.message);
+        setModalContent({
+          title: " Un-Successful",
+          message: res.message,
+          color: "text-dNanger",
+        });
+        setIsModalOpen(true);
       }
     } catch (error) {
       console.error("Error during password reset:", error);
-      toast.error("An error occurred. Please try again later.");
+      setModalContent({
+        title: " Un-Successful",
+        message: "An error occurred. Please try again later.",
+        color: "text-dNanger",
+      });
+      setIsModalOpen(true);
     }
   };
   return (
-    <div className="flex flex-col lg:flex-row w-full h-screen">
+    <div className="flex flex-col xl:flex-row w-full h-screen">
       {/* Left Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+      <div className="w-full xl:w-1/2 flex items-center justify-center p-6 xl:p-12">
         <div className="w-full max-w-md">
           <div className="flex flex-col items-start mb-8">
             <Link to="/">
-              <img loading="lazy" src={logo} alt="AgriNex" className="mb-4 w-32 lg:w-40" />
+              <img
+                loading="lazy"
+                src={logo}
+                alt="AgriNex"
+                className="mb-4 w-32 xl:w-40"
+              />
             </Link>
           </div>
           <div>
-            <h1 className="text-2xl lg:text-3xl font-bold my-4">
+            <h1 className="text-2xl xl:text-3xl font-bold my-4">
               Reset Password
             </h1>
           </div>
@@ -90,19 +116,25 @@ const ResetPassword = () => {
             >
               {isSubmitting ? "Sending..." : "Confirm Password"}
             </button>
-           
           </form>
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="hidden lg:block w-full lg:w-1/2 h-full">
+      <div className="hidden xl:block w-full xl:w-1/2 h-full">
         <img
           src={newSideImg}
           alt="New Side Image"
           className="w-full h-full object-cover"
         />
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
     </div>
   );
 };

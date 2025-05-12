@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import FcGoogle from "../assets/googleIcon.svg";
+import Modal from "./Modal";
 
 const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    color: "",
+  });
 
   const googleSignin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -42,35 +48,63 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
             })
           );
           console.log("Stored User:", JSON.parse(localStorage.getItem("user")));
-          toast.success("Sign in successful!");
+          setModalContent({
+            title: " Successful",
+            message: "Sign in successful!",
+            color: "text-green-500",
+          });
+          setIsModalOpen(true);
           navigate("/");
         } else {
-          toast.error(
-            res.data.message || "Error signing in. Please try again."
-          );
+         
+            setModalContent({
+            title: " Un-Successful",
+            message: res.data.message || "Error signing in. Please try again.",
+            color: "text-danger",
+          });
+          setIsModalOpen(true);
           console.error("SignIn failed", res.data || "No token received");
         }
       } catch (err) {
-        toast.error(
-          err.response?.data?.message || "Error signing in. Please try again."
-        );
+       
+         setModalContent({
+            title: " Un-Successful",
+            message: err.response?.data?.message || "Error signing in. Please try again.",
+            color: "text-danger",
+          });
+          setIsModalOpen(true);
         console.error("SignIn failed", err.response?.data || err.message);
       }
     },
     onError: () => {
-      toast.error("Google Sign-In Failed");
+         setModalContent({
+            title: " Un-Successful",
+            message: "Google Sign-In Failed",
+            color: "text-danger",
+          });
+          setIsModalOpen(true);
       console.log("Google Sign-In Failed");
     },
   });
 
   return (
-    <button
-      onClick={() => googleSignin()}
-      className="w-full py-3 border border-gray-300 rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition"
-    >
-      <img loading="lazy" src={FcGoogle} alt="Google Icon" />
-      <span>{buttonText}</span>
-    </button>
+    <div>
+      <button
+        onClick={() => googleSignin()}
+        className="w-full py-3 border border-gray-300 rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition"
+      >
+        <img loading="lazy" src={FcGoogle} alt="Google Icon" />
+        <span>{buttonText}</span>
+      </button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
+    </div>
   );
 };
 

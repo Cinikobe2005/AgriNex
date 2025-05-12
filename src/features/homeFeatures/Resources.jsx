@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Resources = () => {
   return (
-    <main className="py-4 px-1 md:px-[90px] lg:px-[100px]">
+    <main className="py-4 px-1 md:px-[90px] xl:px-[100px]">
       <div className="w-11/12 mx-auto container">
         <div className="text-center py-10">
           <p className="text-gray">GROW SMARTER</p>
@@ -13,7 +13,7 @@ const Resources = () => {
             Our Resources
           </h1>
         </div>
-        <div className="flex gap-5 rounded-lg overflow-auto">
+        <div className="carousel carousel-center flex gap-5 rounded-lg overflow-auto">
           {ResourcesDetails?.map((item, index) => {
             return (
               <div

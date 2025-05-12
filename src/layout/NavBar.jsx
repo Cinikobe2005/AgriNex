@@ -9,6 +9,25 @@ const NavBar = () => {
   const [isToken, setIsToken] = useState(false);
   const [profilePicture, setProfilePicture] = useState(defaultProfile);
 
+  // Auto-hide/show navbar on scroll
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(window.scrollY);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 50) {
+        setShowNav(true);
+      } else if (window.scrollY > lastScrollY) {
+        setShowNav(false);
+      } else {
+        setShowNav(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser?.token) {
@@ -39,8 +58,8 @@ const NavBar = () => {
       <button
         className="text-danger text-[20px] font-medium cursor-pointer"
         onClick={() => {
-          (document.getElementById("mobile-drawer").checked = false),
-            document.getElementById("logout_modal").showModal();
+          (document.getElementById("mobile-drawer").checked = false);
+          document.getElementById("logout_modal").showModal();
         }}
       >
         Logout
@@ -50,14 +69,18 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="bg-white py-4 px-6 md:px-[90px] lg:px-[100px]">
+      <nav
+        className={`sticky top-0 bg-white py-4 px-6 md:px-[90px] xl:px-[100px] transition-transform duration-300 z-50 ${
+          showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="w-11/12 container mx-auto flex justify-between items-center">
           <Link to="/">
             <img src={logo} alt="AgriNex Logo" className="w-24 md:w-32" />
           </Link>
 
           {/* Desktop Links */}
-          <ul className="hidden lg:flex space-x-4">
+          <ul className="hidden xl:flex space-x-4">
             {["/", "/about", "/our-work", "/contact-us"].map((path, i) => {
               const labels = ["Home", "About", "Our Work", "Contact Us"];
               return (
@@ -77,7 +100,7 @@ const NavBar = () => {
           </ul>
 
           {/* Desktop Auth */}
-          <div className="hidden lg:flex space-x-2 items-center ">
+          <div className="hidden xl:flex space-x-2 items-center ">
             {isToken ? (
               renderLogoutUI()
             ) : (
@@ -93,7 +116,7 @@ const NavBar = () => {
           </div>
 
           {/* Mobile Drawer */}
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <div className="drawer drawer-end">
               <input
                 id="mobile-drawer"
