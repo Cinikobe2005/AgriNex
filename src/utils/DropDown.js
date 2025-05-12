@@ -26,6 +26,39 @@ import marketAccess from "../assets/marketAccess.png";
 import trainingAdvisory from "../assets/trainingAdvisory.png";
 import sustainableAgriculture from "../assets/sustainableAgriculture.png";
 import agriIntelligence from "../assets/agriIntelligence.png";
+import smartFarming from "../assets/smartFarming.png";
+import dataAnalytics from "../assets/dataAnalytics.png";
+import supplyChain from "../assets/supplyChain.png";
+
+export const offer = [
+  {
+    id: 1,
+    img: dataAnalytics,
+    title: "Data & Analytics: ",
+    content: "Real-time data to improve productivity.",
+  },
+  {
+    id: 2,
+    img: supplyChain,
+    title: "Supply Chain Integration:  ",
+    content: "Seamless logistics for farm-to-market efficiency.",
+  },
+  {
+    id: 3,
+    img: smartFarming,
+    title: "Smart Farming Solutions: ",
+    content: "RAI driven insights for crop monitoring & farm management.",
+  },
+  {
+    id: 4,
+    img: smartFarming,
+    title: "Market Access  ",
+    content: "Connect farmers directly with buyers ",
+  },
+];
+
+
+
 
 export const WeDo = [
   {
@@ -297,7 +330,7 @@ export const services = [
   {
     title: "Agri-Data Intelligence",
     description:
-      "We turn farm data into actionable insights — helping farmers make smarter decisions on crops, soil, and yields.",
+      "We turn farm data into actionable insights — helping farmers make smarter.",
     icon: agriIntelligence,
   },
 ];
