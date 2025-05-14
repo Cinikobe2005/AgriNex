@@ -54,7 +54,7 @@ const LoginPage = () => {
           color: "text-green-500",
         });
         setIsModalOpen(true);
-        console.log(response.data);
+        
         localStorage.setItem(
           "user",
           JSON.stringify({
@@ -94,7 +94,6 @@ const LoginPage = () => {
         });
         setIsModalOpen(true);
       }
-      console.error("Error during sign in:", error.response.data.message);
     } finally {
       setIsLoading(false);
     }

@@ -37,9 +37,8 @@ const ForgotPassword = () => {
         });
       }
       setIsModalOpen(true);
-      console.log(res);
     } catch (error) {
-      console.log(error);
+    
 
       setModalContent({
         title: " Un-Successful",

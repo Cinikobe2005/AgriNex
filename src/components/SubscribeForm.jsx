@@ -43,7 +43,6 @@ const SubscribeForm = () => {
       setIsModalOpen(true); // Open the modal
       setEmail(""); // Clear the input field
     } catch (error) {
-      console.error("Subscription failed:", error);
       setModalContent({
         title: "Subscription Failed",
         message: "Something went wrong. Please try again.",
