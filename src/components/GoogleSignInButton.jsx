@@ -17,7 +17,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
   const googleSignin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
-        console.log("Google Token Response:", tokenResponse);
 
         if (!tokenResponse || !tokenResponse.access_token) {
           toast.error("Google Sign-In failed. No token received.");
@@ -37,7 +36,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
         );
 
         if (res.status === 200 && res.data.token) {
-          console.log("SignIn Success", res.data.token);
 
           localStorage.setItem(
             "user",
@@ -47,7 +45,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
               username: res.data.user.username,
             })
           );
-          console.log("Stored User:", JSON.parse(localStorage.getItem("user")));
           setModalContent({
             title: " Successful",
             message: "Sign in successful!",
@@ -63,7 +60,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
             color: "text-danger",
           });
           setIsModalOpen(true);
-          console.error("SignIn failed", res.data || "No token received");
         }
       } catch (err) {
        
@@ -73,7 +69,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
             color: "text-danger",
           });
           setIsModalOpen(true);
-        console.error("SignIn failed", err.response?.data || err.message);
       }
     },
     onError: () => {
@@ -83,7 +78,6 @@ const GoogleSignInButton = ({ buttonText = "Sign in with Google" }) => {
             color: "text-danger",
           });
           setIsModalOpen(true);
-      console.log("Google Sign-In Failed");
     },
   });
 

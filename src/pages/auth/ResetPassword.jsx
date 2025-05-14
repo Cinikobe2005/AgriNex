@@ -37,7 +37,7 @@ const ResetPassword = () => {
         }
       );
       const res = await req.json();
-      console.log(res);
+     
       if (res.success || res.status === 201) {
         setModalContent({
           title: " Successful",
@@ -56,7 +56,6 @@ const ResetPassword = () => {
         setIsModalOpen(true);
       }
     } catch (error) {
-      console.error("Error during password reset:", error);
       setModalContent({
         title: " Un-Successful",
         message: "An error occurred. Please try again later.",

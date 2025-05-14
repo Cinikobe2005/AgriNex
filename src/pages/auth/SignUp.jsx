@@ -87,7 +87,6 @@ const SignUp = () => {
         });
         setIsModalOpen(true);
       }
-      console.error("Error during sign up:", error.response.data.errMsg);
     } finally {
       setIsLoading(false);
     }
