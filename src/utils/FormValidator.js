@@ -51,10 +51,6 @@ export const contactUsSchema = yup.object().shape({
     .string()
     .required("Name is required")
     .min(3, "Name must be at least 3 characters long"),
-  email: yup
-    .string()
-    .email("Invalid email address")
-    .required("Email is required"),
   subject: yup
     .string()
     .required("Subject is required")
