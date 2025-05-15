@@ -3,8 +3,14 @@ import Button from "../../components/Button";
 import map from "../../assets/Map.png";
 import { useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
+import Modal from "../../components/Modal";
 const GetInTouch = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    color: "",
+  });
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -25,11 +31,21 @@ const GetInTouch = () => {
         formData
       );
       if (response.status === 201) {
-        toast.success("Message sent successfully!");
+        setModalContent({
+          title: " Successful",
+          message: "Message sent successfully!",
+          color: "text-green-500",
+        });
+        setIsModalOpen(true);
         setFormData({ name: "", phoneNumber: "", email: "", message: "" });
       }
     } catch (error) {
-      toast.error("Failed to send message. Please try again.");
+      setModalContent({
+        title: " Un-Successful",
+        message: "Failed to send message. Please try again.",
+        color: "text-danger",
+      });
+      setIsModalOpen(true);
     }
   };
 
@@ -178,6 +194,13 @@ const GetInTouch = () => {
           ></iframe>
         </div>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Close the modal
+        title={modalContent.title}
+        message={modalContent.message}
+        color={modalContent.color}
+      />
     </main>
   );
 };
