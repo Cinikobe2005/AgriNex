@@ -13,52 +13,51 @@ const About = lazy(() => import("./pages/About"));
 const Work = lazy(() => import("./pages/Work"));
 const Contact = lazy(() => import("./pages/Contact"));
 
-function LoaderWatcher({ setLoading }) {
-  const location = useLocation();
+// function LoaderWatcher({ setLoading }) {
+//   const location = useLocation();
 
-  useEffect(() => {
-    setLoading(true);
-    const images = Array.from(document.images);
-    if (images.length === 0) {
-      setLoading(false);
-      return;
-    }
-    let loaded = 0;
-    const onImgLoad = () => {
-      loaded += 1;
-      if (loaded === images.length) setLoading(false);
-    };
-    images.forEach(img => {
-      if (img.complete) {
-        onImgLoad();
-      } else {
-        img.addEventListener("load", onImgLoad);
-        img.addEventListener("error", onImgLoad);
-      }
-    });
-    return () => {
-      images.forEach(img => {
-        img.removeEventListener("load", onImgLoad);
-        img.removeEventListener("error", onImgLoad);
-      });
-    };
-  }, [location, setLoading]);
+//   useEffect(() => {
+//     setLoading(true);
+//     const images = Array.from(document.images);
+//     if (images.length === 0) {
+//       setLoading(false);
+//       return;
+//     }
+//     let loaded = 0;
+//     const onImgLoad = () => {
+//       loaded += 1;
+//       if (loaded === images.length) setLoading(false);
+//     };
+//     images.forEach(img => {
+//       if (img.complete) {
+//         onImgLoad();
+//       } else {
+//         img.addEventListener("load", onImgLoad);
+//         img.addEventListener("error", onImgLoad);
+//       }
+//     });
+//     return () => {
+//       images.forEach(img => {
+//         img.removeEventListener("load", onImgLoad);
+//         img.removeEventListener("error", onImgLoad);
+//       });
+//     };
+//   }, [location, setLoading]);
 
-  return null;
-}
+//   return null;
+// }
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   return (
     <>
       <BrowserRouter>
-        <LoaderWatcher setLoading={setLoading} />
-        {loading && (
+        {/* {loading && (
           <div className="fixed inset-0 z-[9999] flex justify-center items-center bg-white">
             <span className="w-25 loading loading-ring loading-xl"></span>
           </div>
-        )}
+        )} */}
         <Suspense
           fallback={
             <div className="flex justify-center items-center w-full h-screen">
